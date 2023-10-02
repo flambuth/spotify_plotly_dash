@@ -1,24 +1,25 @@
-Spotify Plotly Dash Documentation
-Table of Contents
+# Spotify Plotly Dash Documentation
+
+## Table of Contents
 
     Repository Description
     Requirements
     Data Dictionary
 
-Repository Description
+## Repository Description
 
 This repository contains Python code for creating interactive dashboards to visualize Spotify charts data. It includes the following files:
 
     funcs.py: Contains functions for data processing and dashboard creation.
     main.py: The main script to run the Plotly Dash application.
 
-Data Source
+## Data Source
 
 The primary dataset used in this project is the 'charts.csv' file, which can be downloaded from Kaggle. 
     https://www.kaggle.com/datasets/dhruvildave/spotify-charts/download?datasetVersionNumber=85
 This dataset is  3.48 GB.
 
-Requirements
+## Requirements
 
 To run the Spotify Plotly Dash application, you can install these libraries using pip::
 
@@ -28,14 +29,14 @@ To run the Spotify Plotly Dash application, you can install these libraries usin
     dash_bootstrap_components
     dash_bootstrap_templates
 
-
+    ```
     pip install pandas plotly dash dash_bootstrap_components dash_bootstrap_templates
+    ```
 
-
-Data Dictionary
+## Data Dictionary
 
 The Spotify charts data is processed and transformed into several datasets. Here's a description of each dataset:
-charts200.csv
+### charts200.csv
 
 This dataset contains information about songs on the Spotify charts. It has the following columns:
 
@@ -49,7 +50,7 @@ This dataset contains information about songs on the Spotify charts. It has the 
     trend: String - Text description of the movement of the song/title relative to the prior date.
     streams: Int64 - Total streams of the song on the date.
 
-world_streams.csv
+### world_streams.csv
 
 This dataset summarizes the streams of songs by region and artist. It has the following columns:
 
@@ -57,7 +58,7 @@ This dataset summarizes the streams of songs by region and artist. It has the fo
     artist: Object - Artist name.
     streams: Int64 - Total streams of songs in that region by the artist.
 
-my_streams.csv
+### my_streams.csv
 
 This dataset summarizes your selected streams by region and artist. It has the following columns:
 
@@ -65,7 +66,7 @@ This dataset summarizes your selected streams by region and artist. It has the f
     artist: Object - Artist name.
     streams: Int64 - Total streams of songs in that region by the artist.
 
-my_arts.csv
+### my_arts.csv
 
 This dataset contains information about your curated list of artists by region. It has the following columns:
 
