@@ -23,16 +23,15 @@ This dataset is  3.48 GB.
 
 To run the Spotify Plotly Dash application, you can install these libraries using pip::
 
-    pandas
-    plotly
-    dash
-    dash_bootstrap_components
-    dash_bootstrap_templates
+* pandas
+* plotly
+* dash
+* dash_bootstrap_components
+* dash_bootstrap_templates
 
-    ```
-    pip install pandas plotly dash dash_bootstrap_components dash_bootstrap_templates
-    ```
-
+```
+pip install pandas plotly dash dash_bootstrap_components dash_bootstrap_templates
+```
 ## Data Dictionary
 
 The Spotify charts data is processed and transformed into several datasets. Here's a description of each dataset:
