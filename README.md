@@ -20,7 +20,7 @@ The primary dataset used in this project is the 'charts.csv' file, which can be 
 
     https://www.kaggle.com/datasets/dhruvildave/spotify-charts/download?datasetVersionNumber=85
 
-This dataset is a 3.48 GB CSV of Spotify chart data for all world regions from Jan2017-Jul2021
+This dataset is a 3.48 GB CSV of Spotify chart data for all world regions from Jan2017-Jul2021. It is compressed and will need to be unzipped after downloading.
 
 ## Requirements
 
