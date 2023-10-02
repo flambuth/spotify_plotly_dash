@@ -65,21 +65,21 @@ This dataset contains information about songs on the Spotify charts.
 
 This dataset summarizes the streams of songs by region and artist. 
 
-    region: Object - Region name.
-    artist: Object - Artist name.
+    region: String - Region name.
+    artist: String - Artist name.
     streams: Int64 - Total streams of songs in that region by the artist.
 
 ### my_streams.csv
 
 This dataset summarizes your selected streams by region and artist. 
 
-    region: Object - Region name.
-    artist: Object - Artist name.
+    region: String - Region name.
+    artist: String - Artist name.
     streams: Int64 - Total streams of songs in that region by the artist.
 
 ### my_arts.csv
 
 This dataset contains information about your curated list of artists by region. 
 
-    region: Object - Region name.
+    region: String - Region name.
     artist: Int64 - Number of artists from your list in that region.
