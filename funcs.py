@@ -2,11 +2,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-import dash
-from dash import Dash, dcc, html, Input, Output
-import dash_bootstrap_components as dbc
-from dash_bootstrap_templates import load_figure_template
-
 def spotify_dataframe(spotify_csv=None):
     '''
     Returns a dataframe of Spotify Top 200 charts for each day between Jan2017-Jul2021
@@ -76,6 +71,9 @@ def write_dfs_to_csv(personal_artist_list):
     world_stream_counts.to_csv('world_streams.csv')
     
 def world_top_fig(region):
+    '''
+    Returns the Plotly hbar figure displaying the top 10 artists in each region
+    '''
     try:
         df = pd.read_csv('world_streams.csv')
     except FileNotFoundError:
@@ -109,6 +107,9 @@ def world_top_fig(region):
 
 
 def personal_stream_fig(region=None):
+    '''
+    Returns the Plotly bar figure displaying the streams of the personal artist list
+    '''
     df = pd.read_csv('my_streams.csv')
 
     #you might want to comment this out if the artists you are looking at are smaller in value. 
@@ -164,6 +165,10 @@ def personal_stream_fig(region=None):
     return fig
 
 def personal_world_fig():
+    '''
+    Returns the world map displaying the regions with the most unique artists found in the personal
+    artist list
+    '''
     df = pd.read_csv('my_arts.csv')
     fig = go.Figure(go.Choropleth(
     locations=df['region'],  

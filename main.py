@@ -9,11 +9,16 @@ from dash_bootstrap_templates import load_figure_template
 
 from funcs import *
 #################################################
+
+#This should be executed before operating this dashboard. 
 #write_dfs_to_csv(my_art_list)
 
+#LAYOuts
+#I set up a div with just the peronsal bar graph, then a second div that has two graphs sharing a row
+#I call these in my actual app.layout
 graph1 = html.Div(
 dcc.Graph(
-    id="global_bar_plot",
+    id="my_bar_plot",
     figure=personal_stream_fig('Belgium'),
     config={'displayModeBar': False}
 ),
@@ -30,26 +35,25 @@ dbc.Col(
         ),
         style={'border-radius': '15px', 'overflow': 'hidden', 'margin-top': '10px', 'border': '3px solid #238a6b'}
     ),
-    width={'size': 10, 'offset': -1}  # This sets the width of the second graph to one-quarter of the row
+    width={'size': 10, 'offset': -1}  
 ),
 dbc.Col(
-    # Define your third graph here in a similar style
     html.Div(
         dcc.Graph(
-            id='bad_bunny_plot',
-            figure=world_top_fig('Belgium'),  # Replace with the figure for your third graph
+            id='hbar_plot',
+            figure=world_top_fig('Belgium'),  
             config={'displayModeBar': False}
         ),
         style={'border-radius': '15px', 'overflow': 'hidden', 'margin-top': '10px', 'border': '3px solid #238a6b'}
     ),
-    width={'size': 2, 'offset': 0}  # This sets the width of the third graph to one-quarter of the row
+    width={'size': 2, 'offset': 0}  
 )
 ])
 
-# Create the Dash app instance
+# Create the Dash app instance. A dash can work as a temporary flask server.
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 
-# Define your layout
+# THe stack of HTM Divs that make the HTML content displayed on a web browser
 app.layout = html.Div(
         style={'backgroundColor': 'black'},
         children=[
@@ -75,6 +79,9 @@ app.layout = html.Div(
         ]
     )
 
+#Callbacks are used to transfer values between elements in the dashboard
+
+#The clickData on the world updates a variable that two other figures use as an input.
 @app.callback(
     Output('selected-country', 'children'),
     Input('the_world_plot', 'clickData')
@@ -85,9 +92,11 @@ def update_selected_country(clickData):
         return selected_country
     return 'Belgium'  # Default value if no country is selected
 
+
+#The two bar charts react to the first callback
 @app.callback(
-    Output('global_bar_plot', 'figure'),
-    Output('bad_bunny_plot', 'figure'),
+    Output('my_bar_plot', 'figure'),
+    Output('hbar_plot', 'figure'),
     Input('selected-country', 'children')
 )
 def update_graph(selected_country):
@@ -99,6 +108,7 @@ def update_graph(selected_country):
 
     return fig_bar_chart, fig_hbar
 
+#The output of the first callback modifys the big H1 test in the center of the HTML divs
 @app.callback(
     Output('selected-country-display', 'children'),
     Input('selected-country', 'children')
@@ -106,6 +116,7 @@ def update_graph(selected_country):
 def update_selected_country_display(selected_country):
     return selected_country
 
+#this line instantiates the flask server that runs on localhost:8050
 if __name__ == '__main__':
     app.run_server(debug=True)
 
