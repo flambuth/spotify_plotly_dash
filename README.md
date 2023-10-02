@@ -1,11 +1,5 @@
 # Spotify Plotly Dash Documentation
-
-# Table of Contents
-* Repository Description
-* Data Source
-* Requirements
-* Process
-* Data Dictionary
+ ![image](files:readme_img.JPG) 
 
 ## Repository Description
 
@@ -21,7 +15,7 @@ The primary dataset used in this project is the 'charts.csv' file, which can be 
 
     https://www.kaggle.com/datasets/dhruvildave/spotify-charts/download?datasetVersionNumber=85
 
-This dataset is  3.48 GB.
+This dataset is a 3.48 GB CSV of Spotify chart data for all world regions from Jan2017-Jul2021
 
 ## Requirements
 
@@ -48,6 +42,10 @@ A more explicit list of modules used in each of these libraries is found in requ
 ## Data Dictionary
 
 Datasets listed are created by calling funcs.write_dfs_to_csv after downloading 'charts.csv' from the URL
+
+### personal_artist_list
+
+Any list of artist names that can be read into a Python list. This list is used as a parameter to define the 'my_*.csv' datasets in the function write_dfs_to_csv
 
 ### charts200.csv
 
@@ -85,7 +83,3 @@ This dataset contains information about your curated list of artists by region.
 
     region: Object - Region name.
     artist: Int64 - Number of artists from your list in that region.
-
-### personal_artist_list
-
-Any list of artist names that can be read into a Python list. This list is used as a parameter to define the 'my_*.csv' datasets.
