@@ -1,5 +1,5 @@
 # Spotify Plotly Dash Documentation
- ![image](files:readme_img.JPG) 
+ ![alt text](readme_img.JPG) 
 
 ## Repository Description
 
